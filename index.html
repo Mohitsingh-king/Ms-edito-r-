@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.editor-container {
+    display: flex;
+    width: 100%;
+}
+
+.code-editor {
+    width: 50%;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.code-editor h3 {
+    margin: 0;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.preview {
+    width: 50%;
+    padding: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.editor-container {
+    display: flex;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.code-editor {
+    width: 50%;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.code-editor h3 {
+    margin: 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.code-editor h3:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.preview {
+    width: 50%;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fade-in 0.5s forwards;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+  </style>
+</head>
+
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="editor-container">
+        <div class="code-editor">
+            <h3>HTML</h3>
+            <textarea id="htmlCode" placeholder="Write HTML here..."></textarea>
+            <h3>CSS</h3>
+            <textarea id="cssCode" placeholder="Write CSS here..."></textarea>
+            <h3>JavaScript</h3>
+            <textarea id="jsCode" placeholder="Write JavaScript here..."></textarea>
+        </div>
+        <div class="preview">
+            <h3>Preview</h3>
+            <iframe id="previewFrame"></iframe>
+        </div>
+    </div>
+    <script>
+      const htmlCode = document.getElementById('htmlCode');
+const cssCode = document.getElementById('cssCode');
+const jsCode = document.getElementById('jsCode');
+const previewFrame = document.getElementById('previewFrame');
+
+function updatePreview() {
+    const html = htmlCode.value;
+    const css = `<style>${cssCode.value}</style>`;
+    const js = jsCode.value;
+
+    const preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+    preview.open();
+    preview.write(html + css + `<script>${js}<\/script>`);
+    preview.close();
+}
+
+htmlCode.addEventListener('input', updatePreview);
+cssCode.addEventListener('input', updatePreview);
+jsCode.addEventListener('input', updatePreview);
+
+    </script>
+
+</body>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/671a76a02480f5b4f593484c/1iavluq5o';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</html>
